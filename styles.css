@@ -227,23 +227,39 @@ profile-photo .img{
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    animation: rotateCircle 20s linear infinite;
 }
 
 .profile-circle-decoration:first-child {
     width: 220px;
     height: 220px;
+    animation-duration: 20s;
+    animation-direction: normal;
 }
 
 .profile-circle-decoration.circle-2 {
     width: 240px;
     height: 240px;
     border-color: rgba(34, 197, 94, 0.4);
+    animation-duration: 25s;
+    animation-direction: reverse;
 }
 
 .profile-circle-decoration.circle-3 {
     width: 260px;
     height: 260px;
     border-color: rgba(34, 197, 94, 0.3);
+    animation-duration: 30s;
+    animation-direction: normal;
+}
+
+@keyframes rotateCircle {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
 }
 
 .profile-text-col {
@@ -291,6 +307,35 @@ profile-photo .img{
     line-height: 1.1;
     color: #fff;
     letter-spacing: 1px;
+}
+
+/* Typing Animation */
+.typing-animation {
+    overflow: hidden;
+    border-right: 3px solid var(--primary-color);
+    white-space: nowrap;
+    display: inline-block;
+    text-align: left;
+    animation: typing 2s steps(25, end), blink-cursor 0.75s step-end infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-cursor {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: var(--primary-color);
+    }
 }
 
 .profile-text {
