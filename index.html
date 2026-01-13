@@ -30,7 +30,17 @@
             <div class="profile-content">
                 <div class="profile-photo-col">
                     <div class="profile-photo">
-                        <img src="images/pfp.png" alt="Ace" style="width:200px; height:200px; border-radius:50%; box-shadow:0 4px 24px rgba(0,0,0,0.3); object-fit:cover;">
+                        <img src="images/pfp.png" alt="Ace" class="profile-img" style="width:200px; height:200px; border-radius:50%; box-shadow:0 4px 24px rgba(0,0,0,0.3); object-fit:cover;">
+                        <style>
+                        .profile-img {
+                            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.35s;
+                        }
+                        .profile-img:hover {
+                            transform: scale(1.06) translateY(-8px);
+                            box-shadow: 0 12px 32px rgba(139,92,246,0.18), 0 2px 8px rgba(0,0,0,0.12);
+                            filter: brightness(1.04) contrast(1.08);
+                        }
+                        </style>
                     </div>
                     <div class="profile-location" style="margin-top:20px; text-align:center; color:var(--light-text); font-size:1.1rem;">
                         <span style="color: rgb(139, 92, 246);">
