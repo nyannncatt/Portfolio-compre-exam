@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio~Compre</title>
+    <title>Personal Portfolio Website</title>
+    <link rel="icon" type="image/png" href="images/image.png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -12,7 +13,7 @@
     <nav>
         <div class="nav-content">
             <div class="logo">
-                <a href="#home">My Personal Portfolio</a>
+                <a href="#home">Personal Portfolio</a>
             </div>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
@@ -23,34 +24,64 @@
         </div>
     </nav>
 
-     <!-- Home Section -->
+    <!-- Home Section -->
     <section id="home" class="home-section">
         <div class="container">
             <div class="profile-content">
-                <div class="profile-image">
-                    <img src="images/profile.jpg" alt="Ace">
+                <div class="profile-photo-col">
+                    <div class="profile-photo">
+                        <img src="images/pfp.png" alt="Ace" class="profile-img" style="width:200px; height:200px; border-radius:50%; box-shadow:0 4px 24px rgba(0,0,0,0.3); object-fit:cover;">
+                        <style>
+                        .profile-img {
+                            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), filter 0.35s;
+                        }
+                        .profile-img:hover {
+                            transform: scale(1.06) translateY(-8px);
+                            box-shadow: 0 12px 32px rgba(139,92,246,0.18), 0 2px 8px rgba(0,0,0,0.12);
+                            filter: brightness(1.04) contrast(1.08);
+                        }
+                        </style>
+                    </div>
+                    <div class="profile-location" style="margin-top:20px; text-align:center; color:var(--light-text); font-size:1.1rem;">
+                        <span style="color: rgb(139, 92, 246);">
+                            <i class="fas fa-map-marker-alt"></i> Bukidnon, Manolo Fortich
+                        </span></span>
+                    </div>
                 </div>
-                <div class="profile-text">
-                    <h4>Hi I'm</h4>
-                    <h1>Ace</h1>
-                    <p>Welcome to my portfolio website! I'm a passionate and aspiring software engineer with a strong desire to create innovative solutions and push the boundaries of technology.</p>
-                </div>
-        
-                <div class="profile-social" style="display: flex; flex-direction: row; align-items: center; gap: 20px; margin-top: -20px;">
-                    <a href="https://facebook.com/your-facebook-username" target="_blank" aria-label="Facebook" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
-                        <span>FACEBOOK</span>
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://github.com/your-github-username" target="_blank" aria-label="GitHub" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
-                        <span>GITHUB</span>
-                        <i class="fab fa-github"></i>
-                    </a>
+                <div class="profile-text-col">
+                    <div class="profile-text">
+                        <h4>Hi I'm</h4>
+                        <h1>Ace Stephen Dave</h1>
+                        <p>Welcome to my portfolio website! I'm a passionate and aspiring web developer with a strong desire to create innovative solutions and push the boundaries of technology.</p>
+                    </div>
+                    <div class="profile-social" style="display: flex; flex-direction: row; align-items: center; gap: 20px; margin-top: -20px; color: purple;">
+                        <a href="https://www.facebook.com/EzLawliet" target="_blank" aria-label="Facebook" class="social-link" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+                            <span style="color: rgb(139, 92, 246);">FACEBOOK</span>
+                            <i class="fab fa-facebook-f" style="color: rgb(139, 92, 246);"></i>
+                        </a>
+                        <a href="https://github.com/nyannncatt" target="_blank" aria-label="GitHub" class="social-link" style="display: flex; flex-direction: column; align-items: center; text-decoration: none;">
+                            <span style="color: rgb(139, 92, 246);">GITHUB</span>
+                            <i class="fab fa-github" style="color: rgb(139, 92, 246);"></i>
+                        </a>
+                        <style>
+                        .profile-social .social-link:hover span,
+                        .profile-social .social-link:hover i {
+                            color: #fff !important;
+                            text-shadow: 0 0 8px rgb(139, 92, 246), 0 0 16px rgb(139, 92, 246);
+                        }
+                        .profile-social .social-link:hover {
+                            background: none !important;
+                            box-shadow: none !important;
+                            border-radius: 0 !important;
+                        }
+                        </style>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-     <!-- About Section -->
+    <!-- About Section -->
     <section id="about" class="about-section">
         <div class="container">
             <h2>About Me</h2>
@@ -70,11 +101,21 @@
                     </div>
                     <div class="info-item">
                         <span>From:</span>
-                        <p>Philippines</p>
+                        <p>Bukidnon, Manolo Fortich</p>
                     </div>
                     <div class="info-item">
                         <span>Email:</span>
                         <p>acestephendaveamolat@gmail.com</p>
+                    </div>
+
+                     <div class="info-item">
+                        <span>Contact Number:</span>
+                        <p>09556187980</p>
+                    </div>
+
+                     <div class="info-item">
+                        <span>Github Username:</span>
+                        <p>nyannncatt</p>
                     </div>
                     
                 </div>
@@ -82,7 +123,7 @@
         </div>
     </section>
 
-     <!-- Education Section -->
+    <!-- Education Section -->
     <section id="education" class="education-section">
         <div class="container">
             <h2>Education</h2>
@@ -108,23 +149,72 @@
             <div class="internship-grid">
                 <div class="internship-card">
                     <h3>1st year - 2nd year</h3>
-                    <h4>-</h4>
+                    <h4 style="color: gray;">(click to view)</h4>
                     <p>2022-2024</p>
                     <ul>
-                        <li>P</li>
-                        <li>E</li>
-                        <li>C</li>
+                        <li>
+                            <a href="https://github.com/nyannncatt/it24-main" class="project-link">
+                                IT 24 - Event Driven Programming
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/nyannncatt/Inventorysimple/tree/main/Inventory%20Unfinished" class="project-link">
+                                Simple Inventory Management
+                            </a>
+                        </li>
+                      
+                           
                     </ul>
+                    <style>
+                    .project-link {
+                        text-decoration: none;
+                        color: rgb(139, 92, 246);
+                        transition: color 0.2s, box-shadow 0.2s;
+                    }
+                    .project-link:hover {
+                        color: #fff;
+                        background: rgb(139, 92, 246);
+                        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+                        border-radius: 4px;
+                        padding: 2px 6px;
+                    }
+                    </style>
                 </div>
                 <div class="internship-card">
                     <h3>3rd year - PRESENT</h3>
-                    <h4>-</h4>
+                    <h4 style="color: gray;">(click to view)</h4>
                     <p>2024-PRESENT</p>
                     <ul>
-                        <li>E</li>
-                        <li>P</li>
-                        <li>T</li>
+                        <li>
+                            <a href="https://github.com/nyannncatt/laravel-erp-tspSphere/tree/admin/crudv2" class="project-link">
+                                ERP system that routes Teacher, Student and Parents.
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/nyannncatt/tsphp/tree/content/UI" class="project-link">
+                                Enterprise backup from my laravelconeceptweb.
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/nyannncatt/it35-lab/tree/appdev/final" class="project-link">
+                                IT35LAB
+                            </a>
+                        </li>
                     </ul>
+                    <style>
+                    .project-link {
+                        text-decoration: none;
+                        color: rgb(139, 92, 246);
+                        transition: color 0.2s, box-shadow 0.2s;
+                    }
+                    .project-link:hover {
+                        color: #fff;
+                        background: rgb(139, 92, 246);
+                        box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+                        border-radius: 4px;
+                        padding: 2px 6px;
+                    }
+                    </style>
                 </div>
             </div>
         </div>
@@ -133,25 +223,29 @@
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <div class="container">
-            <h2>My Projects</h2>
-            <p class="section-subtitle">Discover my projects, where creativity meets innovation</p>
+            <h2>Work Experience</h2>
+            <p class="section-subtitle">Sideline rather lmao. 2023-2024</p>
             <div class="projects-grid">
-                <div class="project-card">
-                    <h3>S</h3>
-                    <p>Th</p>
-                </div>
-                <div class="project-card">
-                    <h3>N</h3>
-                    <p>An</p>
-                </div>
-                <div class="project-card">
-                    <h3>Portfolio Website</h3>
-                    <p>Created a portfolio website using HTML, CSS, and JavaScript. It serves as a platform to introduce myself, share my projects, and provide information about my education.</p>
-                </div>
+            <div class="project-card">
+                <img src="images/Screenshot (477).png" alt="Project 1" style="width:100%; border-radius:8px;">
+                <h3>Avatar Creation</h3>
+                <p></p>
+            </div>
+            <div class="project-card">
+                <img src="images/Screenshot (400).png" alt="Project 2" style="width:100%; border-radius:8px;">
+                <h3>Event hosting (Paraspace VirtualGame)</h3>
+                <p></p>
+            </div>
+            <div class="project-card">
+                <img src="images/Screenshot (435).png" alt="Portfolio Website" style="width:100%; border-radius:8px;">
+                <h3>Creation on Unity using PS SDK</h3>
+                <p></p>
+            </div>
             </div>
         </div>
     </section>
-     <!-- Footer -->
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <p></p>

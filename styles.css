@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -108,6 +109,15 @@ h2 {
 }
 
 /* Home Section */
+
+profile-photo .img{
+  height: 100%;
+  width: 100%;
+  transition: 0.5s;
+}
+
+
+
 .home-section {
     background: linear-gradient(120deg, #232336 60%, #181824 100%);
     min-height: 100vh;
@@ -121,17 +131,31 @@ h2 {
 
 .profile-content {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.5rem;
-    max-width: 700px;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    max-width: 900px;
     margin: 0 auto;
     background: var(--glass-bg);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    padding: 3rem 3rem 3rem 3rem;
+    padding: 3rem;
     position: relative;
     z-index: 2;
+}
+
+.profile-photo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 220px;
+}
+
+.profile-text-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .profile-image {
@@ -305,7 +329,7 @@ h2 {
 }
 
 .project-card {
-    background: var(--glass-bg);
+    background: url('images/Screenshot (478).png') center/cover no-repeat;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     color: #fff;
@@ -335,7 +359,33 @@ footer {
 /* Responsive Design */
 @media (max-width: 900px) {
     .profile-content {
+        flex-direction: column;
         padding: 2rem;
+        gap: 2rem;
+    }
+    .profile-photo-col {
+        min-width: 0;
+    }
+    .nav-content {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem 0.5rem;
+        margin: 0;
+        max-width: 100%;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
+    }
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.2rem;
+        margin-top: 1rem;
+    }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+    .home-section {
+        padding-top: 7rem;
     }
 }
 
