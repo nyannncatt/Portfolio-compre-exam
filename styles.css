@@ -636,6 +636,30 @@ profile-photo .img{
     color: var(--primary-color); /* Green color */
 }
 
+.about-section h2::before {
+    background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), var(--primary-color), transparent);
+    background-size: 300% 100%;
+    animation: expandLine 1s ease-out forwards, shimmerUnderline 2s linear infinite 1s, pulseUnderline 2s ease-in-out infinite 1.5s;
+}
+
+@keyframes pulseUnderline {
+    0%, 100% {
+        box-shadow: 0 0 10px rgba(34, 197, 94, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(34, 197, 94, 0.8), 0 0 30px rgba(34, 197, 94, 0.4);
+    }
+}
+
+@keyframes shimmerUnderline {
+    0% {
+        background-position: -100% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
 .about-section h2 i {
     margin-right: 0.5rem;
 }
@@ -752,8 +776,20 @@ profile-photo .img{
     text-shadow: 0 0 20px rgba(34, 197, 94, 0.3);
 }
 
+.education-section h2::before {
+    background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), var(--primary-color), transparent);
+    background-size: 300% 100%;
+    animation: expandLine 1s ease-out forwards, shimmerUnderline 2s linear infinite 1s, pulseUnderline 2s ease-in-out infinite 1.5s;
+}
+
 #personal-projects {
     scroll-margin-top: 120px;
+}
+
+#personal-projects::before {
+    background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), var(--primary-color), transparent);
+    background-size: 300% 100%;
+    animation: expandLine 1s ease-out forwards, shimmerUnderline 2s linear infinite 1s, pulseUnderline 2s ease-in-out infinite 1.5s;
 }
 
 .education-section h2 i,
@@ -1070,6 +1106,12 @@ profile-photo .img{
 
 .projects-section h2 {
     color: var(--primary-color); /* Green color */
+}
+
+.projects-section h2::before {
+    background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), var(--primary-color), transparent);
+    background-size: 300% 100%;
+    animation: expandLine 1s ease-out forwards, shimmerUnderline 2s linear infinite 1s, pulseUnderline 2s ease-in-out infinite 1.5s;
 }
 
 .projects-section h2 i {
