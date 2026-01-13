@@ -319,7 +319,7 @@ profile-photo .img{
     display: inline-block;
     text-align: left;
     position: relative;
-    animation: typing 2s steps(25, end);
+    animation: typing 3s steps(25, end);
     animation-fill-mode: forwards;
     width: 0;
 }
@@ -332,7 +332,7 @@ profile-photo .img{
     bottom: 0;
     width: 3px;
     background-color: var(--primary-color);
-    animation: blink-cursor 0.75s step-end infinite, hide-cursor 0s 2s forwards;
+    animation: blink-cursor 0.75s step-end infinite, hide-cursor 0s 3s forwards;
 }
 
 @keyframes typing {
