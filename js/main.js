@@ -99,4 +99,33 @@ function handleNavbarVisibility() {
 }
 
 window.addEventListener('scroll', handleNavbarVisibility, { passive: true });
-document.addEventListener('DOMContentLoaded', handleNavbarVisibility); 
+document.addEventListener('DOMContentLoaded', handleNavbarVisibility);
+
+// Education cards sequential flip animation when section is visible
+const educationSection = document.getElementById('education');
+const educationCards = document.querySelectorAll('.education-card.college-card-flip');
+let hasAnimated = false;
+
+const educationObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !hasAnimated) {
+            hasAnimated = true;
+            // Add flip-animate class to each card sequentially
+            educationCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('flip-animate');
+                    // Remove animation class after animation completes to restore hover functionality
+                    setTimeout(() => {
+                        card.classList.remove('flip-animate');
+                    }, 3500 + (index * 1000)); // Remove after animation completes (3.5s animation + delay)
+                }, index * 1000); // 1 second delay between each card
+            });
+        }
+    });
+}, {
+    threshold: 0.3 // Trigger when 30% of section is visible
+});
+
+if (educationSection) {
+    educationObserver.observe(educationSection);
+} 
