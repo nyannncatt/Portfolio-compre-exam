@@ -1,86 +1,96 @@
 <!DOCTYPE html>
 <html>
-  <title>Portfolio</title>
-<style>
+<head>
+    <title>Portfolio</title>
+    <style>
+        body {
+            background: #212121;
+            margin: 0;
+            padding: 0;
+        }
 
-body {
-  background: #212121;
-  padding: 50px 0;
+        .nav {
+            font-family: 'Titillium Web', sans-serif;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #212121;
+            padding: 10px 0;
+            z-index: 1000;
+        }
 
+        .nav * {
+            box-sizing: border-box;
+            transition: all .35s ease;
+        }
 
-}
+        .nav li {
+            display: inline-block;
+            list-style: none;
+            margin: 0 15px;
+        }
 
-.nav {
-  font-family: 'Titillium Web';
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: 600;
-}
+        .nav a {
+            padding: .5em .8em;
+            color: rgba(255,255,255,.5);
+            position: relative;
+            text-decoration: none;
+            font-size: 20px;
+        }
 
-.nav * {
-  box-sizing: border-box;
-  transition: all .35s ease;
-}
+        .nav a::before,
+        .nav a::after {
+            content: '';
+            height: 14px;
+            width: 14px;
+            position: absolute;
+            transition: all .35s ease;
+            opacity: 0;
+        }
 
-.nav li {
-  display: inline-block;
-  list-style: outside none none;
-  margin: .5em 1em;
-  
-}
+        .nav a::before {
+            right: 0;
+            top: 0;
+            border-top: 3px solid #3E8914;
+            border-right: 3px solid #2E640F;
+            transform: translate(-100%, 50%);
+        }
 
-.nav a {
-  padding: .5em .8em;
-  color: rgba(255,255,255,.5);
-  position: relative;
-  text-decoration: none;
-  font-size: 20px;
-}
+        .nav a::after {
+            left: 0;
+            bottom: 0;
+            border-bottom: 3px solid #2E640F;
+            border-left: 3px solid #3E8914;
+            transform: translate(100%, -50%);
+        }
 
-.nav a::before,
-.nav a::after {
-  content: '';
-  height: 14px;
-  width: 14px;
-  position: absolute;
-  transition: all .35s ease;
-  opacity: 0;
-}
+        .nav a:hover::before,
+        .nav a:hover::after {
+            transform: translate(0,0);
+            opacity: 1;
+        }
 
-.nav a::before {
-  content: '';
-  right: 0;
-  top: 0;
-  border-top: 3px solid #3E8914;
-  border-right: 3px solid #2E640F;
-  transform: translate(-100%, 50%);
-}
+        .nav a:hover {
+            color: #3DA35D;
+        }
 
-.nav a:after {
-  content: '';
-  left: 0;
-  bottom: 0;
-  border-bottom: 3px solid #2E640F;
-  border-left: 3px solid #3E8914;
-  transform: translate(100%, -50%)
-}
+        /* Adding padding to body so content doesn't get hidden behind the nav */
+        body {
+            padding-top: 60px;
+        }
+    </style>
+</head>
+<body>
 
-.nav a:hover:before,
-.nav a:hover:after{
-  transform: translate(0,0);
-  opacity: 1;
-}
+    <ul class="nav">
+        <li><a href="#">Home</a></li>
+        <li><a href="./animated link/css html js/index.html">Accounts</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
 
-.nav a:hover {
-  color: #3DA35D;
-}
-
-</style>
-
-<ul class="nav">
-    <li><a href="#">Home</a></li>
-    <li><a href="./animated link/css html js/index.html">Accounts</a></li>
-    <li><a href="#">About</a></li>
- 
-  </ul>
+</body>
 </html>
