@@ -245,4 +245,38 @@ const projectsObserver = new IntersectionObserver((entries) => {
 
 if (projectsSection) {
     projectsObserver.observe(projectsSection);
-} 
+}
+
+// Scroll Progress Indicator
+window.addEventListener('scroll', () => {
+    const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (window.scrollY / windowHeight) * 100;
+    document.body.style.setProperty('--scroll-progress', scrolled + '%');
+    
+    // Update the progress bar
+    const progressBar = document.querySelector('body::before');
+    if (progressBar) {
+        document.body.style.setProperty('--scroll-width', scrolled + '%');
+    }
+});
+
+// Update scroll progress on load
+document.addEventListener('DOMContentLoaded', () => {
+    const style = document.createElement('style');
+    style.textContent = `
+        body::before {
+            width: var(--scroll-width, 0%);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Initial scroll calculation
+    const updateProgress = () => {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        document.documentElement.style.setProperty('--scroll-width', scrolled + '%');
+    };
+    
+    window.addEventListener('scroll', updateProgress);
+    updateProgress();
+}); 
