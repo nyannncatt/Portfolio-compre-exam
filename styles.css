@@ -44,6 +44,11 @@ nav {
     background: transparent;
     box-shadow: none;
     z-index: 1000;
+    transition: transform 0.3s ease-in-out;
+}
+
+nav.nav-hidden {
+    transform: translateY(-100%);
 }
 
 .nav-content {

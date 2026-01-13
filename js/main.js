@@ -46,25 +46,33 @@ document.querySelectorAll('.project-card').forEach(card => {
     observer.observe(card);
 });
 
-// Hide navbar on mobile when on home section or at top, show when scrolling down
-function handleMobileNavbarVisibility() {
+// Hide navbar when scrolling down, show when scrolling up
+let lastScrollTop = 0;
+let scrollThreshold = 100; // Hide nav after scrolling 100px
+
+function handleNavbarVisibility() {
     const nav = document.querySelector('nav');
-    const homeSection = document.getElementById('home');
     const scrollY = window.scrollY;
-    const isMobile = window.innerWidth <= 900;
-    if (!nav || !homeSection) return;
-    if (isMobile) {
-        // Get the bottom of the home section
-        const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
-        if (scrollY < homeBottom - 80) {
-            nav.style.display = 'none';
-        } else {
-            nav.style.display = '';
-        }
-    } else {
-        nav.style.display = '';
+    
+    if (!nav) return;
+    
+    // Always show nav at the top of the page
+    if (scrollY < scrollThreshold) {
+        nav.classList.remove('nav-hidden');
+        return;
     }
+    
+    // Hide nav when scrolling down, show when scrolling up
+    if (scrollY > lastScrollTop) {
+        // Scrolling down
+        nav.classList.add('nav-hidden');
+    } else {
+        // Scrolling up
+        nav.classList.remove('nav-hidden');
+    }
+    
+    lastScrollTop = scrollY <= 0 ? 0 : scrollY;
 }
-window.addEventListener('scroll', handleMobileNavbarVisibility);
-window.addEventListener('resize', handleMobileNavbarVisibility);
-document.addEventListener('DOMContentLoaded', handleMobileNavbarVisibility); 
+
+window.addEventListener('scroll', handleNavbarVisibility, { passive: true });
+document.addEventListener('DOMContentLoaded', handleNavbarVisibility); 
