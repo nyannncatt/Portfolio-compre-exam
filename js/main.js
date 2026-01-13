@@ -14,8 +14,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
         
         if (targetElement) {
-            // Add extra offset for About section
-            const offset = targetId === '#about' ? 80 : 0;
+            // Add extra offset for specific sections
+            let offset = 0;
+            if (targetId === '#about') {
+                offset = 80;
+            } else if (targetId === '#personal-projects') {
+                offset = 100;
+            }
             const elementPosition = targetElement.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - offset;
 
