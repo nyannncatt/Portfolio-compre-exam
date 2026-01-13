@@ -44,4 +44,27 @@ document.querySelectorAll('.project-card').forEach(card => {
     card.style.transform = 'translateY(20px)';
     card.style.transition = 'all 0.5s ease-out';
     observer.observe(card);
-}); 
+});
+
+// Hide navbar on mobile when on home section or at top, show when scrolling down
+function handleMobileNavbarVisibility() {
+    const nav = document.querySelector('nav');
+    const homeSection = document.getElementById('home');
+    const scrollY = window.scrollY;
+    const isMobile = window.innerWidth <= 900;
+    if (!nav || !homeSection) return;
+    if (isMobile) {
+        // Get the bottom of the home section
+        const homeBottom = homeSection.offsetTop + homeSection.offsetHeight;
+        if (scrollY < homeBottom - 80) {
+            nav.style.display = 'none';
+        } else {
+            nav.style.display = '';
+        }
+    } else {
+        nav.style.display = '';
+    }
+}
+window.addEventListener('scroll', handleMobileNavbarVisibility);
+window.addEventListener('resize', handleMobileNavbarVisibility);
+document.addEventListener('DOMContentLoaded', handleMobileNavbarVisibility); 
