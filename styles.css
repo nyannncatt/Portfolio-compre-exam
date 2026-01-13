@@ -203,11 +203,32 @@ profile-photo .img{
     letter-spacing: 1px;
 }
 
+.profile-text {
+    position: relative;
+    overflow: hidden;
+}
+
 .profile-text p {
     color: var(--light-text);
     font-size: 1.2rem;
     margin-bottom: 2rem;
     max-width: 500px;
+}
+
+.profile-text .tech-symbol {
+    position: absolute;
+    color: rgba(34, 197, 94, 0.6);
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatTech 12s ease-in-out infinite;
+}
+
+.profile-text > * {
+    position: relative;
+    z-index: 1;
 }
 
 .cta-buttons {
@@ -282,6 +303,29 @@ profile-photo .img{
     max-width: 1200px;
     padding: 3rem 2rem;
     border: 1px solid rgba(34, 197, 94, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section .container {
+    position: relative;
+}
+
+.about-section .tech-symbol {
+    position: absolute;
+    color: rgba(34, 197, 94, 0.6);
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatTech 12s ease-in-out infinite;
+}
+
+.about-section h2,
+.about-section .about-content {
+    position: relative;
+    z-index: 1;
 }
 
 .about-section h2 {
@@ -348,6 +392,98 @@ profile-photo .img{
     color: #fff;
     border: 1px solid rgba(34, 197, 94, 0.3);
     padding: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated Technology Symbols */
+.education-card::before,
+.education-card::after,
+.internship-card::before,
+.internship-card::after {
+    content: '</>';
+    position: absolute;
+    color: rgba(34, 197, 94, 0.6);
+    font-size: 1rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatTech 8s ease-in-out infinite;
+}
+
+.education-card::before {
+    top: 15%;
+    left: 10%;
+    animation-delay: 0s;
+    animation-duration: 12s;
+}
+
+.education-card::after {
+    bottom: 20%;
+    right: 15%;
+    animation-delay: 3s;
+    animation-duration: 15s;
+}
+
+.internship-card::before {
+    top: 25%;
+    right: 12%;
+    animation-delay: 1.5s;
+    animation-duration: 14s;
+}
+
+.internship-card::after {
+    bottom: 15%;
+    left: 10%;
+    animation-delay: 4s;
+    animation-duration: 13s;
+}
+
+/* Additional tech symbols using spans */
+.education-card .tech-symbol,
+.internship-card .tech-symbol {
+    position: absolute;
+    color: rgba(34, 197, 94, 0.6);
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatTech 10s ease-in-out infinite;
+}
+
+@keyframes floatTech {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.5;
+    }
+    20% {
+        transform: translate(30px, -40px) rotate(10deg);
+        opacity: 0.7;
+    }
+    40% {
+        transform: translate(-25px, -60px) rotate(-15deg);
+        opacity: 0.6;
+    }
+    60% {
+        transform: translate(40px, -30px) rotate(12deg);
+        opacity: 0.7;
+    }
+    80% {
+        transform: translate(-35px, -20px) rotate(-8deg);
+        opacity: 0.6;
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0.5;
+    }
+}
+
+.education-card > *,
+.internship-card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .education-card h3,
@@ -380,6 +516,30 @@ profile-photo .img{
     max-width: 1200px;
     padding: 3rem 2rem;
     border: 1px solid rgba(34, 197, 94, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.projects-section .container {
+    position: relative;
+}
+
+.projects-section .tech-symbol {
+    position: absolute;
+    color: rgba(34, 197, 94, 0.6);
+    font-size: 0.9rem;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatTech 12s ease-in-out infinite;
+}
+
+.projects-section h2,
+.projects-section .section-subtitle,
+.projects-section .projects-grid {
+    position: relative;
+    z-index: 1;
 }
 
 .projects-section h2 {
