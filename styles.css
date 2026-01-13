@@ -109,6 +109,15 @@ h2 {
 }
 
 /* Home Section */
+
+profile-photo .img{
+  height: 100%;
+  width: 100%;
+  transition: 0.5s;
+}
+
+
+
 .home-section {
     background: linear-gradient(120deg, #232336 60%, #181824 100%);
     min-height: 100vh;
@@ -122,17 +131,31 @@ h2 {
 
 .profile-content {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2.5rem;
-    max-width: 700px;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    max-width: 900px;
     margin: 0 auto;
     background: var(--glass-bg);
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
-    padding: 3rem 3rem 3rem 3rem;
+    padding: 3rem;
     position: relative;
     z-index: 2;
+}
+
+.profile-photo-col {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 220px;
+}
+
+.profile-text-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .profile-image {
@@ -336,7 +359,12 @@ footer {
 /* Responsive Design */
 @media (max-width: 900px) {
     .profile-content {
+        flex-direction: column;
         padding: 2rem;
+        gap: 2rem;
+    }
+    .profile-photo-col {
+        min-width: 0;
     }
 }
 
