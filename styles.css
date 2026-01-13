@@ -1,3 +1,4 @@
+/* Reset and Base Styles */
 * {
     margin: 0;
     padding: 0;
@@ -305,7 +306,7 @@ h2 {
 }
 
 .project-card {
-    background: var(--glass-bg);
+    background: url('images/Screenshot (478).png') center/cover no-repeat;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     color: #fff;
