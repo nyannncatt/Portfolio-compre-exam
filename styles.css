@@ -7,15 +7,15 @@
 
 /* === DARK THEME & MODERN STYLES === */
 :root {
-    --primary-color: #8b5cf6; /* purple accent */
-    --secondary-color: #6366f1; /* blue accent */
+    --primary-color: #22c55e; /* green accent */
+    --secondary-color: #34d399; /* light green accent */
     --text-color: #fff;
     --light-text: #a1a1aa;
     --background: #181824;
     --section-bg: #232336;
     --glass-bg: rgba(36, 37, 50, 0.7);
     --border-radius: 2rem;
-    --shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --shadow: 0 8px 32px 0 rgba(34, 197, 94, 0.37);
 }
 
 html {
@@ -25,8 +25,22 @@ html {
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     line-height: 1.6;
-    background: linear-gradient(135deg, #181824 0%, #232336 100%);
+    background: transparent;
     color: var(--text-color);
+    position: relative;
+}
+
+/* GIF Background */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    opacity: 0.5; /* Adjust opacity here (0.0 to 1.0) */
+    pointer-events: none;
 }
 
 .container {
@@ -61,6 +75,8 @@ nav.nav-hidden {
     box-shadow: var(--shadow);
     margin: 1rem auto;
     max-width: 1200px;
+    position: relative;
+    z-index: 1001;
 }
 
 .logo a {
@@ -94,10 +110,12 @@ nav.nav-hidden {
 section {
     padding: 5rem 0;
     background: transparent;
+    position: relative;
+    z-index: 1;
 }
 
 section:nth-child(even) {
-    background: var(--section-bg);
+    background: rgba(35, 35, 54, 0.7); /* Semi-transparent to show GIF */
 }
 
 h2 {
@@ -124,7 +142,7 @@ profile-photo .img{
 
 
 .home-section {
-    background: linear-gradient(120deg, #232336 60%, #181824 100%);
+    background: transparent;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -141,7 +159,7 @@ profile-photo .img{
     gap: 3rem;
     max-width: 900px;
     margin: 0 auto;
-    background: var(--glass-bg);
+    background: rgba(36, 37, 50, 1); /* Fully opaque */
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     padding: 3rem;
@@ -205,7 +223,7 @@ profile-photo .img{
     outline: none;
     cursor: pointer;
     transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.15);
+    box-shadow: 0 2px 8px rgba(34, 197, 94, 0.15);
 }
 
 .primary-btn {
@@ -255,6 +273,18 @@ profile-photo .img{
 }
 
 /* About Section */
+.about-section {
+    background: rgba(35, 35, 54, 1) !important; /* Fully opaque */
+    border-radius: var(--border-radius);
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 3rem 2rem;
+}
+
+.about-section h2 {
+    color: var(--primary-color); /* Green color */
+}
+
 .about-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -276,8 +306,8 @@ profile-photo .img{
     color: #fff;
     padding: 1rem;
     border-radius: 1rem;
-    box-shadow: 0 0 8px 0 #8b5cf6, 0 2px 6px rgba(124, 58, 237, 0.08);
-    border: 1px solid rgba(139, 92, 246, 0.18);
+    box-shadow: 0 0 8px 0 #22c55e, 0 2px 6px rgba(34, 197, 94, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.18);
 }
 
 .info-item span {
@@ -286,6 +316,15 @@ profile-photo .img{
 }
 
 /* Education Section */
+.education-section h2 {
+    color: var(--primary-color); /* Green color */
+}
+
+.education-section h2 i,
+.education-section h2 + h2 i {
+    margin-right: 0.5rem;
+}
+
 .education-grid,
 .internship-grid {
     display: grid;
@@ -296,11 +335,11 @@ profile-photo .img{
 
 .education-card,
 .internship-card {
-    background: var(--glass-bg);
+    background: rgba(36, 37, 50, 1); /* Fully opaque */
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     color: #fff;
-    border: 1px solid rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.08);
     padding: 2rem;
 }
 
@@ -327,6 +366,18 @@ profile-photo .img{
 }
 
 /* Projects Section */
+.projects-section {
+    background: rgba(35, 35, 54, 1) !important; /* Fully opaque */
+    border-radius: var(--border-radius);
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 3rem 2rem;
+}
+
+.projects-section h2 {
+    color: var(--primary-color); /* Green color */
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -338,7 +389,7 @@ profile-photo .img{
     border-radius: var(--border-radius);
     box-shadow: var(--shadow);
     color: #fff;
-    border: 1px solid rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(34, 197, 94, 0.08);
     padding: 2rem;
     transition: transform 0.3s ease;
 }
