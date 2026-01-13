@@ -146,4 +146,103 @@ const educationObserver = new IntersectionObserver((entries) => {
 
 if (educationSection) {
     educationObserver.observe(educationSection);
+}
+
+// About section info cards animation when section is visible
+const aboutSection = document.getElementById('about');
+const infoItems = document.querySelectorAll('.info-item');
+let aboutHasAnimated = false;
+
+const aboutObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !aboutHasAnimated) {
+            aboutHasAnimated = true;
+            // Add animate class to each info item sequentially
+            infoItems.forEach((item, index) => {
+                setTimeout(() => {
+                    item.classList.add('animate');
+                }, index * 100); // 0.1 second delay between each card
+            });
+        }
+    });
+}, {
+    threshold: 0.2 // Trigger when 20% of section is visible
+});
+
+if (aboutSection) {
+    aboutObserver.observe(aboutSection);
+}
+
+// Education cards fade-in animation when section is visible
+const allEducationCards = document.querySelectorAll('.education-card');
+let educationHasAnimated = false;
+
+const educationFadeObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !educationHasAnimated) {
+            educationHasAnimated = true;
+            // Add animate class to each education card sequentially
+            allEducationCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 150); // 0.15 second delay between each card
+            });
+        }
+    });
+}, {
+    threshold: 0.2 // Trigger when 20% of section is visible
+});
+
+if (educationSection && allEducationCards.length > 0) {
+    educationFadeObserver.observe(educationSection);
+}
+
+// Personal Projects/School Projects cards animation when section is visible
+const personalProjectsHeading = document.getElementById('personal-projects');
+const internshipCards = document.querySelectorAll('.internship-card');
+let personalProjectsHasAnimated = false;
+
+const personalProjectsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !personalProjectsHasAnimated) {
+            personalProjectsHasAnimated = true;
+            // Add animate class to each internship card sequentially
+            internshipCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 150); // 0.15 second delay between each card
+            });
+        }
+    });
+}, {
+    threshold: 0.1 // Trigger when 10% of heading is visible
+});
+
+if (personalProjectsHeading) {
+    personalProjectsObserver.observe(personalProjectsHeading);
+}
+
+// Work Experience cards animation when section is visible
+const projectsSection = document.getElementById('projects');
+const projectCards = document.querySelectorAll('.project-card');
+let projectsHasAnimated = false;
+
+const projectsObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !projectsHasAnimated) {
+            projectsHasAnimated = true;
+            // Add animate class to each project card sequentially
+            projectCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.classList.add('animate');
+                }, index * 150); // 0.15 second delay between each card
+            });
+        }
+    });
+}, {
+    threshold: 0.2 // Trigger when 20% of section is visible
+});
+
+if (projectsSection) {
+    projectsObserver.observe(projectsSection);
 } 
