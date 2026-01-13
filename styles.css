@@ -268,6 +268,7 @@ profile-photo .img{
     flex-direction: column;
     justify-content: center;
     margin-top: -7.5rem;
+    margin-left: 2rem;
     opacity: 0;
     animation: fadeInUp 0.6s ease-out forwards;
     animation-delay: 0.2s;
@@ -312,12 +313,24 @@ profile-photo .img{
 /* Typing Animation */
 .typing-animation {
     overflow: hidden;
-    border-right: 3px solid var(--primary-color);
     white-space: nowrap;
     display: inline-block;
     text-align: left;
-    animation: typing 2s steps(25, end), blink-cursor 0.75s step-end infinite;
+    position: relative;
+    animation: typing 2s steps(25, end);
     animation-fill-mode: forwards;
+    width: 0;
+}
+
+.typing-animation::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--primary-color);
+    animation: blink-cursor 0.75s step-end infinite, hide-cursor 0s 2s forwards;
 }
 
 @keyframes typing {
@@ -331,10 +344,17 @@ profile-photo .img{
 
 @keyframes blink-cursor {
     from, to {
-        border-color: transparent;
+        opacity: 0;
     }
     50% {
-        border-color: var(--primary-color);
+        opacity: 1;
+    }
+}
+
+@keyframes hide-cursor {
+    to {
+        opacity: 0;
+        visibility: hidden;
     }
 }
 
@@ -344,7 +364,7 @@ profile-photo .img{
 }
 
 .profile-text p {
-    color: var(--light-text);
+    color: #fff;
     font-size: 1.2rem;
     margin-bottom: 2rem;
     max-width: 500px;
