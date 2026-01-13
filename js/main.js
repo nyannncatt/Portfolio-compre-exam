@@ -2,9 +2,26 @@
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
+        const nav = document.querySelector('nav');
+        // Set flag to prevent hiding during navigation
+        isNavigating = true;
+        // Keep nav visible when clicking navigation links
+        if (nav) {
+            nav.classList.remove('nav-hidden');
+        }
         document.querySelector(this.getAttribute('href')).scrollIntoView({
             behavior: 'smooth'
         });
+        // Keep nav visible for a short time after navigation, then allow hiding again
+        setTimeout(() => {
+            if (nav) {
+                nav.classList.remove('nav-hidden');
+            }
+            // Reset flag after navigation completes
+            setTimeout(() => {
+                isNavigating = false;
+            }, 1000);
+        }, 500);
     });
 });
 
@@ -49,12 +66,19 @@ document.querySelectorAll('.project-card').forEach(card => {
 // Hide navbar when scrolling down, show when scrolling up
 let lastScrollTop = 0;
 let scrollThreshold = 100; // Hide nav after scrolling 100px
+let isNavigating = false; // Flag to prevent hiding during navigation
 
 function handleNavbarVisibility() {
     const nav = document.querySelector('nav');
     const scrollY = window.scrollY;
     
     if (!nav) return;
+    
+    // Don't hide nav if user just clicked a navigation link
+    if (isNavigating) {
+        nav.classList.remove('nav-hidden');
+        return;
+    }
     
     // Always show nav at the top of the page
     if (scrollY < scrollThreshold) {
