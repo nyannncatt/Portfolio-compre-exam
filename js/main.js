@@ -3,15 +3,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const nav = document.querySelector('nav');
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
         // Set flag to prevent hiding during navigation
         isNavigating = true;
         // Keep nav visible when clicking navigation links
         if (nav) {
             nav.classList.remove('nav-hidden');
         }
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-            behavior: 'smooth'
-        });
+        
+        if (targetElement) {
+            // Add extra offset for About section
+            const offset = targetId === '#about' ? 80 : 0;
+            const elementPosition = targetElement.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+        
         // Keep nav visible for a short time after navigation, then allow hiding again
         setTimeout(() => {
             if (nav) {
