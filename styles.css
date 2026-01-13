@@ -95,6 +95,8 @@ nav.nav-hidden {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
+    padding-top: 0.6rem;
 }
 
 .nav-links a {
